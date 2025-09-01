@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "539245823880",
+    "project_id": "danaid-f4a66",
+    "storage_bucket": "danaid-f4a66.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539245823880:android:db2e9164da9fa4dcae9c3d",
+        "android_client_info": {
+          "package_name": "com.example.danaid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd3ZOchwEdQl-mL73XPe_nHUuei5o_Qgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
