@@ -38,6 +38,11 @@ class _LoginScreenState extends State<LoginScreen> {
         _emailController.text.trim(),
         _passwordController.text.trim(),
       );
+      
+      // After successful login, navigate to home screen
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/home');
+      }
     } catch (e) {
       setState(() => _errorMessage = e.toString());
     } finally {
