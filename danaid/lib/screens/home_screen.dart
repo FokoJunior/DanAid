@@ -269,15 +269,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               );
                             },
                           ),
-                          const Divider(height: 1),
-                          ListTile(
-                            leading: Icon(Icons.settings, color: Theme.of(context).primaryColor),
-                            title: const Text('Paramètres'),
-                            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                            onTap: () {
-                              // Navigate to settings
-                            },
-                          ),
                         ],
                       ),
                     ],
