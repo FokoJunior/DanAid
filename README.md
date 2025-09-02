@@ -1,44 +1,56 @@
+Voici la traduction en français de ton fichier README :
+
+---
+
 # DonAid
 
-Modern Flutter app with Firebase (Auth + Firestore) to manage prestations. Web-ready and mobile-friendly.
+Application Flutter moderne avec Firebase (Auth + Firestore) pour gérer les prestations. Compatible Web et Mobile.
 
-## Features
-- Email/password authentication (login & registration)
-- Profile editing (display name, photo URL)
-- Add/Edit/Delete prestations filtered by current user
-- Attractive UI: custom app bar, hero header, cards, chips, polished forms
-- Flutter Web Firebase initialization fixed
+## Fonctionnalités
 
-## Requirements
-- Flutter 3.x+
-- Dart 3.x
-- Firebase project (Auth + Firestore enabled)
+* Authentification par email/mot de passe (connexion & inscription)
+* Édition du profil (nom d’affichage, photo de profil)
+* Ajout/Modification/Suppression de prestations filtrées par utilisateur connecté
+* Interface attrayante : barre d’application personnalisée, en-tête avec effet héro, cartes, badges, formulaires soignés
+* Initialisation Firebase corrigée pour Flutter Web
 
-## Getting Started
+## Prérequis
 
-1. Clone the project
-```
+* Flutter 3.x+
+* Dart 3.x
+* Projet Firebase (Auth + Firestore activés)
+
+## Mise en route
+
+1. Cloner le projet
+
+```bash
 git clone <your-repo-url>
 cd DanAid/danaid
 ```
 
-2. Install dependencies
-```
+2. Installer les dépendances
+
+```bash
 flutter pub get
 ```
 
-3. Configure Firebase
-- Create a Firebase project.
-- Enable Authentication (Email/Password) and Firestore.
-- Use FlutterFire to generate `lib/firebase_options.dart`:
-```
+3. Configurer Firebase
+
+* Créer un projet Firebase.
+* Activer l’authentification (Email/Mot de passe) et Firestore.
+* Utiliser FlutterFire pour générer `lib/firebase_options.dart` :
+
+```bash
 flutterfire configure
 ```
-- For web, ensure `web/index.html` has Firebase SDK tags or rely on `firebase_options.dart` with `DefaultFirebaseOptions.currentPlatform` in `lib/main.dart`.
 
-4. Firestore Security Rules (development)
-Use permissive rules for authenticated users while developing:
-```
+* Pour le Web, assurez-vous que `web/index.html` contient les balises SDK Firebase ou utilisez `firebase_options.dart` avec `DefaultFirebaseOptions.currentPlatform` dans `lib/main.dart`.
+
+4. Règles de sécurité Firestore (en développement)
+   Utiliser des règles permissives pour les utilisateurs authentifiés pendant le développement :
+
+```js
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -52,45 +64,51 @@ service cloud.firestore {
   }
 }
 ```
-Remember to harden rules before production.
 
-5. Run the app
-```
+⚠️ N’oubliez pas de renforcer les règles avant la mise en production.
+
+5. Lancer l’application
+
+```bash
 flutter run -d chrome
-# or
+# ou
 flutter run
 ```
 
-## Project Structure
-- `lib/main.dart` – App entry and Firebase initialization
-- `lib/screens/` – UI screens (home, auth, profile, add/edit prestation, details)
-- `lib/widgets/` – Reusable widgets (e.g., CustomAppBar, CustomTextField)
-- `lib/services/` – Abstractions for Firebase (AuthService, DatabaseService)
-- `lib/models/` – Data models (e.g., Prestation)
+## Structure du projet
 
-## Notable UI
-- `lib/widgets/custom_app_bar.dart` – Larger logo, back button, unified app bars
-- `lib/screens/home_screen.dart` – Hero image on Accueil, empty state when no prestations
-- `lib/screens/prestation_detail_screen.dart` – Gradient header with chips and action buttons
-- `lib/screens/add_edit_prestation_screen.dart` – Form in card with validation and full-width submit
-- `lib/screens/auth_screen.dart` – Login/Registration with repeated password on sign-up
+* `lib/main.dart` – Point d’entrée et initialisation Firebase
+* `lib/screens/` – Écrans de l’UI (accueil, auth, profil, ajout/édition prestation, détails)
+* `lib/widgets/` – Widgets réutilisables (ex. CustomAppBar, CustomTextField)
+* `lib/services/` – Abstractions pour Firebase (AuthService, DatabaseService)
+* `lib/models/` – Modèles de données (ex. Prestation)
 
-## Environment & Assets
-- Ensure assets are declared in `pubspec.yaml`:
-```
+## Interface notable
+
+* `lib/widgets/custom_app_bar.dart` – Logo plus grand, bouton retour, barres unifiées
+* `lib/screens/home_screen.dart` – Image héro sur l’accueil, affichage vide s’il n’y a pas de prestations
+* `lib/screens/prestation_detail_screen.dart` – En-tête dégradé avec badges et boutons d’action
+* `lib/screens/add_edit_prestation_screen.dart` – Formulaire dans une carte avec validation et bouton de soumission pleine largeur
+* `lib/screens/auth_screen.dart` – Connexion/Inscription avec confirmation du mot de passe à l’inscription
+
+## Environnement & Assets
+
+* Vérifiez que les assets sont déclarés dans `pubspec.yaml` :
+
+```yaml
 assets:
   - assets/logo/logo.png
   - assets/image/hero1.png
 ```
 
-## Common Issues
-- FirebaseOptions null on web: ensure `DefaultFirebaseOptions.currentPlatform` is used in `main.dart` and `firebase_options.dart` exists.
-- Firestore permission-denied: verify rules and that the user is authenticated.
-- CORS on web: serve via `flutter run -d chrome` or a proper host.
+## Problèmes courants
+
+* **FirebaseOptions nul sur le Web** : vérifiez que `DefaultFirebaseOptions.currentPlatform` est utilisé dans `main.dart` et que `firebase_options.dart` existe.
+* **Erreur permission-denied Firestore** : vérifiez les règles et que l’utilisateur est bien authentifié.
+* **Problèmes CORS sur le Web** : exécutez via `flutter run -d chrome` ou un hébergement approprié.
 
 ## Scripts
-- Analyze: `flutter analyze`
-- Format: `flutter format .`
 
-## License
+* Analyse du code : `flutter analyze`
+* Formatage : `flutter format .`
 
