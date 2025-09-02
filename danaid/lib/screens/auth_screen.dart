@@ -12,6 +12,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   bool _isLoading = false;
   bool _isLogin = true;
 
@@ -81,7 +82,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'DonAid',
+                    'DanAid',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 32,
@@ -94,6 +95,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     label: 'Email',
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
+                      
                       if (value == null || value.isEmpty) {
                         return 'Veuillez entrer votre email';
                       }
@@ -108,6 +110,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     controller: _passwordController,
                     label: 'Mot de passe',
                     obscureText: true,
+                    borderColor: Colors.white,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Veuillez entrer votre mot de passe';
@@ -118,6 +121,24 @@ class _AuthScreenState extends State<AuthScreen> {
                       return null;
                     },
                   ),
+                  if (!_isLogin) ...[
+                    const SizedBox(height: 15),
+                    CustomTextField(
+                      controller: _confirmPasswordController,
+                      label: 'Répéter le mot de passe',
+                      obscureText: true,
+                      validator: (value) {
+                        if (_isLogin) return null; // not shown in login
+                        if (value == null || value.isEmpty) {
+                          return 'Veuillez répéter votre mot de passe';
+                        }
+                        if (value != _passwordController.text) {
+                          return 'Les mots de passe ne correspondent pas';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
                   SizedBox(height: 20),
                   _isLoading
                       ? CircularProgressIndicator()
@@ -155,6 +176,7 @@ class _AuthScreenState extends State<AuthScreen> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 }

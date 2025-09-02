@@ -5,13 +5,16 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final bool obscureText;
   final TextInputType keyboardType;
+  final Color borderColor;
   final int maxLines;
   final String? Function(String?)? validator;
 
   const CustomTextField({
     required this.controller,
     required this.label,
+    this.borderColor = Colors.white,
     this.obscureText = false,
+
     this.keyboardType = TextInputType.text,
     this.maxLines = 1,
     this.validator,
