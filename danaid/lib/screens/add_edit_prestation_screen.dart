@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../models/prestation.dart';
 import '../services/database_service.dart';
 import '../widgets/custom_textfield.dart';
+import '../widgets/custom_app_bar.dart';
 
 class AddEditPrestationScreen extends StatefulWidget {
   final Prestation? prestation;
@@ -118,18 +119,8 @@ class _AddEditPrestationScreenState extends State<AddEditPrestationScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: theme.primaryColor),
-        title: Text(
-          widget.prestation == null ? 'Nouvelle Prestation' : 'Modifier la Prestation',
-          style: GoogleFonts.poppins(
-            color: Colors.black87,
-            fontWeight: FontWeight.w600,
-            fontSize: 20,
-          ),
-        ),
+      appBar: CustomAppBar(
+        title: widget.prestation == null ? 'Nouvelle Prestation' : 'Modifier la Prestation',
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

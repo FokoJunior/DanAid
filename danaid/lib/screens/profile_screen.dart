@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/auth_service.dart';
+import '../widgets/custom_app_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -8,9 +9,7 @@ class ProfileScreen extends StatelessWidget {
     final authService = Provider.of<AuthService>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profil'),
-      ),
+      appBar: const CustomAppBar(title: 'Modifier le Profil'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

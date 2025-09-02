@@ -10,6 +10,7 @@ import '../widgets/prestation_card.dart';
 import 'add_edit_prestation_screen.dart';
 import 'prestation_detail_screen.dart';
 import 'profile_screen.dart';
+import '../widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final databaseService = DatabaseService(uid: _user!.uid);
 
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: _selectedIndex == 0,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -83,22 +84,24 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Image.asset(
-          'assets/logo/logo.png',
-          height: 40,
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
-            onPressed: () async {
-              await authService.signOut();
-            },
-          ),
-        ],
-      ),
+      appBar: _selectedIndex == 1
+          ? const CustomAppBar(title: 'Profil')
+          : AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Image.asset(
+                'assets/logo/logo.png',
+                height: 40,
+              ),
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.logout, color: Colors.white),
+                  onPressed: () async {
+                    await authService.signOut();
+                  },
+                ),
+              ],
+            ),
       body: Column(
         children: [
           // Hero Section
