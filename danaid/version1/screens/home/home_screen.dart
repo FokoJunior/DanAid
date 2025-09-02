@@ -40,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
+        // controller: _pageController,
+        // onPageChanged: _onPageChanged,
         children: [
           const _HomeContent(),
           const Center(child: Text('Historique')),
@@ -62,11 +62,21 @@ class _HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prestationService = Provider.of<PrestationService>(context);
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mes Prestations'),
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/logo.png',
+              height: 60,
+              width: 60,
+              errorBuilder: (context, error, stackTrace) => 
+                  const Icon(Icons.medical_services, size: 30),
+            ),
+            const SizedBox(width: 10),
+            const Text('DanAid'),
+          ],
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
@@ -81,6 +91,7 @@ class _HomeContent extends StatelessWidget {
           ),
         ],
       ),
+      // Remove the duplicate AppBar by removing the SliverAppBar
       body: StreamBuilder<List<Prestation>>(
         stream: prestationService.getPrestations(),
         builder: (context, snapshot) {

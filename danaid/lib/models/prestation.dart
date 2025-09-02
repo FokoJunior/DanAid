@@ -1,62 +1,58 @@
 class Prestation {
-  final String id;
-  final String title;
-  final String hospital;
-  final String? reference;
-  final String status;
-  final DateTime? date;
-  final double? amount;
-  final double? coverageRate;
-  final bool isActive;
-  final String? userId;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
+  String id;
+  String title;
+  String description;
+  String establishment;
+  String coverage;
+  String status;
+  String contact;
+  String accessCode;
+  double cost;
+  String reason;
+  int rate;
 
   Prestation({
-    required this.id,
+    this.id = '',
     required this.title,
-    required this.hospital,
-    this.reference,
+    required this.description,
+    required this.establishment,
+    required this.coverage,
     required this.status,
-    this.date,
-    this.amount,
-    this.coverageRate,
-    this.isActive = true,
-    this.userId,
-    this.createdAt,
-    this.updatedAt,
+    required this.contact,
+    required this.accessCode,
+    required this.cost,
+    required this.reason,
+    required this.rate,
   });
-
-  factory Prestation.fromMap(Map<String, dynamic> map, String id) {
-    return Prestation(
-      id: id,
-      title: map['title'] ?? '',
-      hospital: map['hospital'] ?? '',
-      reference: map['reference'],
-      status: map['status'] ?? 'En cours',
-      date: map['date']?.toDate(),
-      amount: map['amount']?.toDouble(),
-      coverageRate: map['coverageRate']?.toDouble() ?? 70.0,
-      isActive: map['isActive'] ?? true,
-      userId: map['userId'],
-      createdAt: map['createdAt']?.toDate(),
-      updatedAt: map['updatedAt']?.toDate(),
-    );
-  }
 
   Map<String, dynamic> toMap() {
     return {
       'title': title,
-      'hospital': hospital,
-      'reference': reference,
+      'description': description,
+      'establishment': establishment,
+      'coverage': coverage,
       'status': status,
-      'date': date,
-      'amount': amount,
-      'coverageRate': coverageRate,
-      'isActive': isActive,
-      'userId': userId,
-      'createdAt': createdAt,
-      'updatedAt': DateTime.now(),
+      'contact': contact,
+      'accessCode': accessCode,
+      'cost': cost,
+      'reason': reason,
+      'rate': rate,
     };
+  }
+
+  static Prestation fromMap(Map<String, dynamic> map, String id) {
+    return Prestation(
+      id: id,
+      title: map['title'] ?? '',
+      description: map['description'] ?? '',
+      establishment: map['establishment'] ?? '',
+      coverage: map['coverage'] ?? '',
+      status: map['status'] ?? '',
+      contact: map['contact'] ?? '',
+      accessCode: map['accessCode'] ?? '',
+      cost: map['cost']?.toDouble() ?? 0.0,
+      reason: map['reason'] ?? '',
+      rate: map['rate']?.toInt() ?? 0,
+    );
   }
 }
