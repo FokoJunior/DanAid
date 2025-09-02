@@ -129,181 +129,208 @@ class _AddEditPrestationScreenState extends State<AddEditPrestationScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              _buildFormField(
-                controller: _titleController,
-                label: 'Titre',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un titre';
-                  }
-                  return null;
-                },
+              Text(
+                'Informations de la prestation',
+                style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-              _buildFormField(
-                controller: _descriptionController,
-                label: 'Description',
-                maxLines: 3,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer une description';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _establishmentController,
-                label: 'Établissement',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un établissement';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _coverageController,
-                label: 'Couverture',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer une couverture';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _statusController,
-                label: 'Statut',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un statut';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _contactController,
-                label: 'Contact',
-                keyboardType: TextInputType.phone,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un contact';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _accessCodeController,
-                label: 'Code d\'accès',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un code d\'accès';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _costController,
-                label: 'Coût (FCFA)',
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
-                ],
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un coût';
-                  }
-                  if (double.tryParse(value) == null) {
-                    return 'Veuillez entrer un nombre valide';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _reasonController,
-                label: 'Raison',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer une raison';
-                  }
-                  return null;
-                },
-              ),
-              _buildFormField(
-                controller: _rateController,
-                label: 'Taux (%)',
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer un taux';
-                  }
-                  if (int.tryParse(value) == null) {
-                    return 'Veuillez entrer un nombre valide';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              const SizedBox(height: 12),
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      _buildFormField(
+                        controller: _titleController,
+                        label: 'Titre',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un titre';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _descriptionController,
+                        label: 'Description',
+                        maxLines: 3,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer une description';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _establishmentController,
+                        label: 'Établissement',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un établissement';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _coverageController,
+                        label: 'Couverture',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer une couverture';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _statusController,
+                        label: 'Statut',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un statut';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _contactController,
+                        label: 'Contact',
+                        keyboardType: TextInputType.phone,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un contact';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _accessCodeController,
+                        label: 'Code d\'accès',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un code d\'accès';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _costController,
+                        label: 'Coût (FCFA)',
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+                        ],
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un coût';
+                          }
+                          if (double.tryParse(value) == null) {
+                            return 'Veuillez entrer un nombre valide';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _reasonController,
+                        label: 'Raison',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer une raison';
+                          }
+                          return null;
+                        },
+                      ),
+                      _buildFormField(
+                        controller: _rateController,
+                        label: 'Taux (%)',
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Veuillez entrer un taux';
+                          }
+                          if (int.tryParse(value) == null) {
+                            return 'Veuillez entrer un nombre valide';
+                          }
+                          return null;
+                        },
+                      ),
+                    ],
                   ),
                 ),
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    final prestation = Prestation(
-                      title: _titleController.text,
-                      description: _descriptionController.text,
-                      establishment: _establishmentController.text,
-                      coverage: _coverageController.text,
-                      status: _statusController.text,
-                      contact: _contactController.text,
-                      accessCode: _accessCodeController.text,
-                      cost: double.parse(_costController.text),
-                      reason: _reasonController.text,
-                      rate: int.parse(_rateController.text),
-                    );
+              ),
+              
+              const SizedBox(height: 16),
 
-                    try {
-                      if (widget.prestation == null) {
-                        await databaseService.addPrestation(prestation);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Prestation ajoutée avec succès')),
-                        );
-                      } else {
-                        await databaseService.updatePrestation(
-                            widget.prestation!.id, prestation);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Prestation mise à jour avec succès')),
-                        );
-                      }
-                      if (mounted) {
-                        Navigator.of(context).pop();
-                      }
-                    } catch (e) {
-                      if (mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Erreur: ${e.toString()}')),
-                        );
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.check_circle_outline),
+                  label: Text(
+                    widget.prestation == null ? 'Ajouter' : 'Mettre à jour',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      final prestation = Prestation(
+                        title: _titleController.text,
+                        description: _descriptionController.text,
+                        establishment: _establishmentController.text,
+                        coverage: _coverageController.text,
+                        status: _statusController.text,
+                        contact: _contactController.text,
+                        accessCode: _accessCodeController.text,
+                        cost: double.parse(_costController.text),
+                        reason: _reasonController.text,
+                        rate: int.parse(_rateController.text),
+                      );
+
+                      try {
+                        if (widget.prestation == null) {
+                          await databaseService.addPrestation(prestation);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Prestation ajoutée avec succès')),
+                          );
+                        } else {
+                          await databaseService.updatePrestation(
+                            widget.prestation!.id,
+                            prestation,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Prestation mise à jour avec succès')),
+                          );
+                        }
+                        if (mounted) {
+                          Navigator.of(context).pop();
+                        }
+                      } catch (e) {
+                        if (mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Erreur: ${e.toString()}')),
+                          );
+                        }
                       }
                     }
-                  }
-                },
-                child: Text(
-                  widget.prestation == null ? 'Ajouter' : 'Mettre à jour',
-                  style: const TextStyle(fontSize: 16),
+                  },
                 ),
               ),
+
               const SizedBox(height: 20),
+              
             ],
           ),
         ),
       ),
     );
+
   }
 
   @override
