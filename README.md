@@ -1,8 +1,6 @@
-Voici la traduction en français de ton fichier README :
 
----
 
-# DonAid
+# DanAid
 
 Application Flutter moderne avec Firebase (Auth + Firestore) pour gérer les prestations. Compatible Web et Mobile.
 
@@ -16,16 +14,21 @@ Application Flutter moderne avec Firebase (Auth + Firestore) pour gérer les pre
 
 ## Prérequis
 
-* Flutter 3.x+
-* Dart 3.x
+* Flutter 3.32.4 
+* Dart 3.8.1
+* DevTools 2.45.1
 * Projet Firebase (Auth + Firestore activés)
+* Git
+* Android Studio
+* Visual Studio Code
+
 
 ## Mise en route
 
 1. Cloner le projet
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/FokoJunior/DanAid.git
 cd DanAid/danaid
 ```
 
@@ -40,6 +43,7 @@ flutter pub get
 * Créer un projet Firebase.
 * Activer l’authentification (Email/Mot de passe) et Firestore.
 * Utiliser FlutterFire pour générer `lib/firebase_options.dart` :
+
 
 ```bash
 flutterfire configure
