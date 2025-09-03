@@ -58,14 +58,18 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/image/hero1.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage('assets/image/hero1.png'),
+          //       // colorFilter: ColorFilter.mode(
+          //       //   Colors.white,
+          //       //   BlendMode.srcIn,
+          //       // ),
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
           Container(
             color: Colors.black.withOpacity(0.5),
           ),

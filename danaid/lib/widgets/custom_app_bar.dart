@@ -13,10 +13,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: true, // Ensures back button is shown
       title: Row(
         children: [
-          Image.asset(
-            'assets/logo/logo.png',
-            height: 36, // Increased logo size
-          ),
+          // Image.asset(
+          //   'assets/logo/logo.png',
+          //   height: 36, // Increased logo size
+          // ),
           const SizedBox(width: 12),
           Text(
             title,
