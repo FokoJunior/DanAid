@@ -69,7 +69,6 @@ service cloud.firestore {
 }
 ```
 
-⚠️ N’oubliez pas de renforcer les règles avant la mise en production.
 
 5. Lancer l’application
 
