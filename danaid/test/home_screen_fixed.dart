@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../services/auth_service.dart';
-import '../services/database_service.dart';
-import '../models/prestation.dart';
-import '../widgets/prestation_card.dart';
-import 'add_edit_prestation_screen.dart';
-import 'prestation_detail_screen.dart';
-import 'profile_screen.dart';
+import '../lib/services/auth_service.dart';
+import '../lib/services/database_service.dart';
+import '../lib/models/prestation.dart';
+import '../lib/widgets/prestation_card.dart';
+import '../lib/screens/add_edit_prestation_screen.dart';
+import '../lib/screens/prestation_detail_screen.dart';
+import '../lib/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
